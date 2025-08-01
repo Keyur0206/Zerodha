@@ -1,0 +1,45 @@
+.fp{
+    font-size: 14px;
+}
+.fpp{
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+a{
+    text-decoration: none;
+}
+
+li a{
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    
+}
+
+.custom{
+    background-color: #387ED1;
+    width: 100vw;
+}
+
+.div a{
+    color: #fff;
+}
+
+.pa a{
+    color: #fff;
+}
+
+.ul a{
+    color: #fff;
+
+}
+
+.ul li{
+    list-style: decimal;
+    color: #fff;
+}
+
+ 

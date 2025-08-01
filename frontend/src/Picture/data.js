@@ -1,0 +1,18 @@
+import HeroImg from './Hero.png'
+import  AwardsImg  from './Awards.png'
+import  EducationImg  from './education.svg'
+import  PressLogoImg  from './Press-logos.png'
+import  PricingImg  from './Pricing.svg'
+import  TwentyImg  from './Twenty.svg'
+import Logo from './logo.svg'
+import me from './me.png'
+import AccountOpen from './account_open.svg'
+import img1 from './img1.png'
+import img2 from './img2.png'
+import img3 from './img3.png'
+import img4 from './img4.svg'
+import img5 from './img5.png'
+import googleimg from './google.svg'
+import appstoreimg from './appstore.svg'
+
+export {HeroImg,AwardsImg,EducationImg,PressLogoImg,PricingImg,TwentyImg,Logo,me,AccountOpen,img1,img2,img3,img4,img5,googleimg,appstoreimg}
