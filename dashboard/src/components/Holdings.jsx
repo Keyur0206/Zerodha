@@ -1,9 +1,65 @@
-import { holdings } from "./data/data";
+// import { holdings } from "./data/data";
+import { useState,useEffect } from "react";
+import { default as axios } from 'axios';
+
+import { VerticalChart } from "./verticalChart";
+
 
 const Holdings = () => {
+
+  const[allHolding,setAllHolding]=useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:3000/allholdings').then((res)=>{
+      // console.log(res.data);
+      setAllHolding(res.data)
+      
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+  },[])
+
+  const labels=allHolding.map((subArr)=>{
+     return subArr["name"]
+    
+  })
+
+  
+  
+
+  const data={
+    labels,
+    datasets: [
+    {
+      label: 'Stock Price',
+      data: allHolding.map((stock) => stock.price),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    }
+  ],
+  }
+
+
+//    const data = {
+//   labels,
+  // datasets: [
+  //   {
+  //     label: 'Dataset 1',
+  //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+  //     backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  //   },
+  //   {
+  //     label: 'Dataset 2',
+  //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+  //     backgroundColor: 'rgba(53, 162, 235, 0.5)',
+  //   },
+  // ],
+// };
+
+
   return (
     <>
-      <h3 className="title">Holdings ({holdings.length})</h3>
+      <h3 className="title">Holdings ({allHolding.length})</h3>
 
       <div className="order-table">
         <table>
@@ -20,7 +76,7 @@ const Holdings = () => {
           </tr>
           </thead>
 
-          {holdings.map((stock, index) => {
+          {Array.isArray(allHolding) && allHolding.map((stock, index) => {
             const curValue = stock.price * stock.qty;
             const isProfit = curValue - stock.avg * stock.qty >= 0.0;
             const profClass = isProfit ? "profit" : "loss";
@@ -64,6 +120,7 @@ const Holdings = () => {
           <p>P&L</p>
         </div>
       </div>
+      <VerticalChart data={data}/>
     </>
   );
 };

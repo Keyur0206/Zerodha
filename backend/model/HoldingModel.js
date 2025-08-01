@@ -1,6 +1,6 @@
 import { model } from "mongoose";
-import { HoldingSchema } from "../schemas/HoldingSchemas";
+import { HoldingSchema } from "../schemas/HoldingSchemas.js";
 
-const HoldingModal= new model("holding",HoldingSchema)
+const HoldingModel= new model("holding",HoldingSchema)
 
-export {HoldingModal}
+export {HoldingModel}
